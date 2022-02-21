@@ -1,0 +1,16 @@
+<div class="todo-list">
+    <div class="Add">
+        <input type="text" class="form-control input-text" placeholder="Enter your todo....." [(ngModel)]="InputText">
+        <button type="button" class="btn btn-success" (click)="AddTodo()">Add Todo</button>
+    </div>
+    <div class="list">
+        <div class="todo" *ngFor="let todo of todos;let i = index;">
+            <div class="id">{{i+1}}</div>
+            <div 
+            class="context {{ (todo.completed ? 'done' : '') }}" (click)="toggleDone(i)" title="{{todo.context}}">{{todo.context}}</div>
+            <button class="btn btn-danger" id="delete" (click)="RemoveTodo(i)">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    </div>
+</div>
